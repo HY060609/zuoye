@@ -429,12 +429,12 @@ def reset_mission():
 
 # ====================== 创建地图 ======================
 def create_map(show_flight=True):
-    # 使用 Esri 全球卫星影像（高清、免费、无需 API Key）
+    # 使用 OpenStreetMap 标准地图
     m = folium.Map(
         location=st.session_state.map_center,
         zoom_start=18,
-        tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-        attr="Esri World Imagery"
+        tiles='OpenStreetMap',
+        attr='© OpenStreetMap contributors'
     )
     
     if not st.session_state.mission_active and not show_flight:
@@ -1023,4 +1023,4 @@ if st.session_state.mission_active and not st.session_state.mission_paused:
 
 # ====================== 页脚 ======================
 st.markdown("---")
-st.markdown("🚁 无人机航线规划与飞行监控系统 | 智能穿行模式自动寻找安全通道 | 开始任务后自动每1.5秒前进一个航点 | 地图来源：Esri World Imagery（卫星图）")
+st.markdown("🚁 无人机航线规划与飞行监控系统 | 智能穿行模式自动寻找安全通道 | 开始任务后自动每1.5秒前进一个航点 | 地图来源：OpenStreetMap")
